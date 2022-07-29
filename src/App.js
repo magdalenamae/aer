@@ -1,6 +1,6 @@
 
 import './App.css';
-import Weather from './start.js';
+import Weather from './findWeather';
 
 function App() {
   return (

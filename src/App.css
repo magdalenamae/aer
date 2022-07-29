@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Styling the day div */
+#day-div {
+  border : 1px solid #000;
+  color : white;
+  border : 1px solid white;
+  background: linear-gradient(to right, aquamarine, orange,
+   aquamarine);;
+  width: 50%;
+  border-radius: 10px;
+}
+
+#week-div {
+  border : 1px solid #000;
+  color : white;
+  width: 50%;
+  border : 1px solid white;
+  background: linear-gradient(to right, aquamarine, #00bcd4);
+  border-radius: 10px;
+}
+
+#main-day-weather{
+  border : 1px solid #000;
+  width: 50%;
+  border-radius: 10px;
+}
