@@ -56,7 +56,7 @@ function Weather(){
         axios.get(`http://api.openweathermap.org/data/2.5/forecast?&lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
         .then(response => {
             setDay(response.data.list.slice(0,5))
-            // console.log(response.data , 'data')
+            console.log(response.data , 'data')
             setWeek(response.data.list.slice(6))
         })
         handleDaySelected()
@@ -76,12 +76,14 @@ function Weather(){
             max_temp={tempMaxSelected}
             description={description}
             />
+            <div id='day-div-container'>
            <DayWeather
             setDay={setDay}
             city={city}
             day={day}
             convertToCelcius={convertToCelcius}
            />
+           </div>
            <WeekWeather
             setWeek={setWeek}
             week={week}

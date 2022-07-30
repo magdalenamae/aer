@@ -1,12 +1,14 @@
-
+import { useState } from "react";
 import {convertToCelcius} from "./findWeather";
 
 function WeekWeather(props) {
   let currentDay = props.week[0]
   let currentIndex = 0
   let daysOfWeek = [[], [], [], [], []]
+  let daysOfTheWeekWeather = []
+ 
   for (let day of props.week){
-  
+    
    if (currentDay.dt_txt.slice(0,10) === day.dt_txt.slice(0,10)){
     daysOfWeek[currentIndex].push(day.main.temp)
    } else {
@@ -15,23 +17,26 @@ function WeekWeather(props) {
     daysOfWeek[currentIndex].push(day.main.temp)
    }
   }
-  console.log(daysOfWeek, 'days of week')
+  for( let dayWeather of daysOfWeek){ 
+    let sum = 0
+    for (let number of dayWeather) {
+      sum += number;
+    }
+    let average = sum / dayWeather.length;
+    let celAve = convertToCelcius(average)
+    daysOfTheWeekWeather.push(celAve)
+    console.log(daysOfTheWeekWeather)
+  }
   // console.log(props.week, 'week') 
   return (
     <div>
-        {/* {props.week.map((day, index) => {
-         
- 
+        {daysOfTheWeekWeather.map((day, index) => {
             return (
-                <div id='week-div'>
-                    <h4>{props.city}</h4>
-                    <p>{day.weather[0].description}</p>
-                    <p>{convertToCelcius(day.main.temp_max)} max temp</p>
-                    <p>{day.dt_txt}</p>
-                    <p>{convertToCelcius(day.main.temp_min)} min temp</p>
-                </div>
+              <div id='week-div'>
+                <p>Average tempreature{day}</p>
+              </div>
             )
-            })} */}
+            })}
        
     </div>
   );
