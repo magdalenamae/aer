@@ -47,6 +47,8 @@
    aquamarine);;
   width: 50%;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 #week-div {
@@ -62,4 +64,10 @@
   border : 1px solid #000;
   width: 50%;
   border-radius: 10px;
+}
+
+#day-div-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
