@@ -3,11 +3,12 @@ import axios from 'axios';
 import DayWeather from './dayWeather';
 import WeekWeather from './weekWeather';
 import MainDayWeather from './maindayweather';
+import OnBoarding from './chooseLocation';
 let apiKey =  'e2482dcf55ac11835a8095829524fb30'
 let APIKEY = 'a56552bea5acf1354c8f9fe72e861c68'
 
 export const convertToCelcius = (temp) => {
-    return  Math.floor(temp - 273.15)  + ' °C'
+    return  Math.floor(temp - 273.15)  + ' °'
 }
 
 function Weather(){
@@ -63,11 +64,13 @@ function Weather(){
     }
   
     return (
-        <div>
+        <div>    
             <h1>AER</h1>
+            <div id='set-weather'>
             <label>Enter your City<input type='text'  id='city' onChange={handleCity}></input></label>  
             <button id='submit-btn' onClick={GeolocationCoordinates}>Set City</button>
             <button onClick={displayWeather}>Display Weather</button>
+            </div>
             <MainDayWeather
             day={daySelected}
             city={citySelected}
