@@ -7,6 +7,8 @@ import cloudy_rain from './images/cloudy_rain.png';
 import snow from './images/snow.png';
 import sunny_clouds from './images/sunny_clouds.png';
 import thunder from './images/thunderstorm.png';
+import rain from './images/rain.png';
+import lightRain from './images/light_rain.png';
   
 export const formatDate = (date) => {
     let updatedDate = date * 1000
@@ -28,25 +30,30 @@ function DayWeather(props) {
   
       
     return props.day.map(hour => {
-        
+        console.log(hour.weather[0].description, 'hour')
         return (
             <div id='day-div'>
-            <h4>{props.city}</h4> 
-            <h4>{formatTime(hour.dt_txt.slice(11,20))}</h4>
-            <h5>{hour ? formatDate(hour.dt) : 'not loaded'}</h5>
-            <p>{(hour.description) ? hour.description : 'not loaded'}
-            {(hour.description === 'sunny') ? <img src={sunny} alt='im' id='img'/> : 
-            (hour.description === 'light rain') ? <img src={sun_rain} alt='im' id='img'/> : 
-            (hour.description === 'rain') ? <img src={cloudy_rain} alt='im' id='img'/> :
-            (hour.description === 'snow') ? <img src={snow} alt='im' id='img'/> :
-            (hour.description === 'clouds') ? <img src={sunny_clouds} alt='im' id='img'/> :
-            (hour.description === 'thunderstorm') ? <img src={thunder} alt='im' id='img'/> :
-            (hour.description === 'clear') ? <img src={sunny} alt='im' id='img'/> :
-            (hour.description === 'mist') ? <img src={cloud} alt='im' id='img'/> :
-            (hour.description === 'scattered clouds') ? <img src={cloud} alt='im' id='img'/> :
-            (hour.description === 'broken clouds') ? <img src={cloud} alt='im' id='img'/> :
-            (hour.description === 'overcast clouds') ? <img src={cloud} alt='im' id='img'/> :null} </p>
-            <p>{hour ? convertToCelcius(hour.main.temp) + ' temp' : 'not loaded'}</p>
+  
+            <h6>{formatTime(hour.dt_txt.slice(11,20))}</h6>
+          
+            <h4>{(hour.weather[0].description) ? hour.weather[0].description : 'not loaded'}
+                {(hour.weather[0].description === 'sunny') ? <img src={sunny} alt='im' id='img'/> : 
+                (hour.weather[0].description === 'light rain') ? <img src={lightRain} alt='im' id='img'/> : 
+                (hour.weather[0].description === 'rain') ? <img src={rain} alt='im' id='img'/> :
+                (hour.weather[0].description === 'snow') ? <img src={snow} alt='im' id='img'/> :
+                (hour.weather[0].description === 'clouds') ? <img src={sunny_clouds} alt='im' id='img'/> :
+                (hour.weather[0].description === 'thunderstorm') ? <img src={thunder} alt='im' id='img'/> :
+                (hour.weather[0].description === 'clear') ? <img src={sunny} alt='im' id='img'/> :
+                (hour.weather[0].description === 'mist') ? <img src={cloud} alt='im' id='img'/> :
+                (hour.weather[0].description=== 'scattered clouds') ? <img src={cloud} alt='im' id='img'/> :
+                (hour.weather[0].description === 'broken clouds') ? <img src={cloud} alt='im' id='img'/> :
+                (hour.weather[0].description === 'overcast clouds') ? <img src={cloud} alt='im' id='img'/> :
+                (hour.weather[0].description === 'shower rain') ? <img src={rain} alt='im' id='img'/> :
+                (hour.weather[0].description === 'moderate rain') ? <img src={rain} alt='im' id='img'/> :
+                (hour.weather[0].description === 'heavy intensity rain') ? <img src={rain} alt='im' id='img'/> :
+                null} </h4>
+                
+            <h4>{hour ? convertToCelcius(hour.main.temp) + ' temp' : 'not loaded'}</h4>
             
             </div>
             

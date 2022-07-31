@@ -1,3 +1,6 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'react-bootstrap';
+import Form  from 'react-bootstrap/Form';
 import {useState} from 'react';
 import axios from 'axios';
 import DayWeather from './dayWeather';
@@ -64,12 +67,30 @@ function Weather(){
     }
   
     return (
-        <div>    
+        <div>  
+            <style type="text/css">
+        {`
+    .btn-flat {
+      background-color: #fecaca;
+      borer: 1px solid #fecaca;
+      color: #323A46;
+      margin: 0.5rem 1rem;
+    }
+
+    .btn-xl {
+      borer: 1px solid #fecaca;
+      padding: 1rem 1.5rem;
+      font-size: 1.5rem;
+    }
+    `}
+      </style>
             <h1>AER</h1>
             <div id='set-weather'>
-            <label>Enter your City<input type='text'  id='city' onChange={handleCity}></input></label>  
-            <button id='submit-btn' onClick={GeolocationCoordinates}>Set City</button>
-            <button onClick={displayWeather}>Display Weather</button>
+            <Form>
+                <label>Enter your City<input type='text'  id='city' onChange={handleCity}></input></label>  
+                <Button  variant="flat" size="xxs" onClick={GeolocationCoordinates}>Set City</Button>
+                <Button variant="flat" size="xxs" onClick={displayWeather}>Display Weather</Button>
+            </Form>
             </div>
             <MainDayWeather
             day={daySelected}
