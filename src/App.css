@@ -1,12 +1,7 @@
-/* body {
-  width: 100% !important;
-  height: 100% !important;
-} */
-.App {
 
+.App {
   text-align: center;
   background-color: #323A46;
-  
 }
 
 .App-logo {
@@ -47,17 +42,9 @@
 
 /* Styling the day div */
 #day-div {
-  background-color: #323A46;
   color : #f7f8f9;
-  font-size: small;
-  width: 100%;
-  height: 100%;
   display: grid;
-  flex-direction: column;
- place-items: center;
-  justify-content: center;
   align-items: center;
-
 }
 #main-header{
   font-family: 'Roboto', sans-serif;
@@ -65,48 +52,24 @@
   font-weight: bold;
 }
 #week-div {
-  color : #f7f8f9;
-  width: 100%;
-  font-size: small;
-  height: 10%;
-  margin: 1%;
-  padding : 3%;
-  background-color: #323A46;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  display: flex;
-
+      color: #f7f8f9;
+      height: 10%;
+      padding: 3%;
+      align-items: center;
 }
 #temp-header{
   font-size: 11vh;
   font-weight: lighter;
-  font-family: 'Roboto', sans-serif;
   color: #f7f8f9;
 }
 #main-day-weather{
-    align-items: center;
-    height: 75%;
-    display: flex;
-    width: 50%;
-    border-radius: 10px;
-    background-color: #323A46;
+    
     color: #f7f8f9;
-    flex-direction: column;
-    padding:10px;
-    margin : 10px;
-    height: 50%;
-    width: 100%;
-    justify-content: center;
+  
 }
 #day-div-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
   color: #f7f8f9;
-  width: 100%;
-  padding: 10px;
-
 }
 
 
@@ -117,6 +80,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+  padding: 0%;
 }
 
 #temp-div  {
@@ -126,51 +90,18 @@
   align-items: center;
 }
 
-#max-temp {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
 
-#min-temp {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
 
-#button {
-  background-color: #6183E4;
-  border: none;
-}
-.main-img {
-  width: 50% !important;
-  height: 55% !important;
-}
-.row {
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  justify-content: center;
-}
 
 button[type='submit'] {
   background-color: #6183E4;
   border: none;
   border-radius: 0 25px 25px 0;
-  height: 50px;
-  margin: 0 auto;
+  color: #f7f8f9;
 }
 
 input[type='text']{
   border-radius: 25px 0 0 25px;
-  height: 50px;
-  width: 50%;
-  margin: 0 auto;
-  padding: 0 10px;
   border: none;
 }
 

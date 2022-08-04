@@ -35,7 +35,6 @@ function DayWeather(props) {
         return (
             <Row key={index} id='day-div' data-testid='day-weather'>
             <Col>{formatTime(hour.dt_txt.slice(11,20))}</Col>
-            {/* <Col>{hour.weather[0].description}</Col> */}
             <Col>
                 {(hour.weather[0].description === 'sunny') ? <img src={sunny} alt='im' id='img'/> : 
                 (hour.weather[0].description === 'light rain') ? <img src={lightRain} alt='im' id='img'/> : 

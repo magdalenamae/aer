@@ -18,10 +18,16 @@ function MainDayWeather(props) {
             <Col id="city-name" data-testid='city-test'>{props.day ? props.day.name : 'not loaded'}</Col>
             <Col id='temp-header'>{props.temp ? convertToCelcius(props.temp) : 'not loaded' }</Col>
             <Row >
+                <Col>
                 {(props.description) ? props.description : 'not loaded'}
-             <Row>
-            <Col id='max-temp'> H {props.max_temp ? convertToCelcius(props.max_temp) : 'not loaded'}</Col>
-            <Col id='min-temp'> L  { props.min_temp ? convertToCelcius(props.min_temp) : 'not loaded'}</Col>
+                </Col>
+            <Row>
+                <Col> 
+                    H {props.max_temp ? convertToCelcius(props.max_temp) : 'not loaded'}
+                </Col>
+                <Col>
+                    L  { props.min_temp ? convertToCelcius(props.min_temp) : 'not loaded'}
+                </Col>
             </Row>
             {(props.description === 'sunny') ? <img src={sunny} alt='im' id='img' className="main-img"/> : 
             (props.description === 'light rain') ? <img src={lightRain} alt='im' id='img' className="main-img"/> : 

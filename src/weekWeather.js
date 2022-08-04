@@ -77,7 +77,7 @@ function WeekWeather(props) {
   }
 
   return (
-    <Container fluid>
+  <Row>
         {daysOfTheWeekWeather.map((day, index) => {
             return (
               <Row id='week-div' key={index}>
@@ -108,8 +108,7 @@ function WeekWeather(props) {
               </Row>
             )
             })}
-       
-    </Container>
+  </Row>
   );
   }
 
