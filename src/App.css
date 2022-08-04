@@ -47,9 +47,11 @@
   align-items: center;
 }
 #main-header{
-  font-family: 'Roboto', sans-serif;
+  font-size: calc(10px + 2vmin);;
+  text-decoration: none;
   color: #6183E4;
   font-weight: bold;
+  ;
 }
 #week-div {
       color: #f7f8f9;
@@ -91,7 +93,9 @@
 }
 
 
-
+#city-name{
+  font-size: (10px + 2vmin);
+}
 
 button[type='submit'] {
   background-color: #6183E4;
@@ -107,4 +111,20 @@ input[type='text']{
 
 #weather-form{
   padding: 15px
+}
+
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (min-width: 1024px) {
+  .container header .header-nav-area #nav_container  {
+    display:flex;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container header .header-nav-area #nav_container  {
+    display:flex;
+  }
 }

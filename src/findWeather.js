@@ -1,10 +1,11 @@
 
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import axios from 'axios';
 
 import DayWeather from './dayWeather';
 import WeekWeather from './weekWeather';
 import MainDayWeather from './maindayweather';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col , Container, Button} from 'react-bootstrap';
@@ -23,8 +24,7 @@ export const convertToCelcius = (temp) => {
 
 
 function Weather(){
-    // const [location , setLocation] = useState('???')
-    const [city , setCity] = useState('Melbourne')
+    const [city , setCity] = useState('')
     const [week , setWeek] = useState([])
     const [day , setDay] = useState([])
     const [daySelected , setDaySelected] = useState(0)
@@ -32,20 +32,40 @@ function Weather(){
     const [tempMainSelected, setTempMainSelected] = useState(0)
     const [tempMinSelected, setTempMinSelected] = useState(0)
     const [tempMaxSelected, setTempMaxSelected] = useState(0)
-    const [description, setDescription] = useState('')
+    const [description, setDescription] = useState('Sunny')
+    const [longitude, setLongitude] = useState(-37.8142176)
+    const [latitude, setLatitude] = useState(144.9631608)
+   
     
+  
+   
     const handleCity = (e) => {
         setCity(e.target.value)
+            localStorage.setItem('city', e.target.value)
     }
 
+    useEffect (() => {
+        setCity(localStorage.getItem('city'))
+        callAxios(localStorage.getItem('city'))
+        console.log(city)
+    },[])
+
     const GeolocationCoordinates = (event) => {
-        event.preventDefault();
-        axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
+        if(event){
+            event.preventDefault();
+        }
+        
+        callAxios(city)  
+    }
+
+    function callAxios(props){
+        axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${props}&limit=1&appid=${apiKey}`)
         .then(response => {
           
             setCity(response.data[0].name)
             let latitude = response.data[0].lat
             let longitude = response.data[0].lon
+            
            
                 axios.get(`https://api.openweathermap.org/data/2.5/forecast?&lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
                     .then(response => {
@@ -55,21 +75,19 @@ function Weather(){
                             .then(response => {
                                 // console.log(response.data , 'day data')
                                 setDaySelected(response.data)
+                                setCity(localStorage.getItem('city', city))
                                 setCitySelected(response.data.name)
                                 setTempMainSelected(response.data.main.temp)
                                 setTempMinSelected(response.data.main.temp_min)
                                 setTempMaxSelected(response.data.main.temp_max)
                                 setDescription(response.data.weather[0].description)
-                            
                             })
                     })
+                    
 
-        })  
-       
-        
+        }) 
     }
-
-  
+                
     return (
         <Container fluid>  
             <Link id='main-header' to="/about">AER</Link>
@@ -101,10 +119,12 @@ function Weather(){
             convertToCelcius={convertToCelcius}
             />
             </Row>
+          
             <Form id='weather-form'>
                 <input type='text'  id='city' placeholder='Enter your City' onChange={handleCity}></input> 
                 <button id='set-weather-button' type='submit' onClick={GeolocationCoordinates}>Set Weather</button>
             </Form>
+     
         </Container>
         
     )

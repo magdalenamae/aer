@@ -1,0 +1,17 @@
+#about-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0%;
+  color: #f7f8f9;
+}
+
+#about-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0%;
+    color: #f7f8f9;
+}

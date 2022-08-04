@@ -36,7 +36,8 @@ function DayWeather(props) {
             <Row key={index} id='day-div' data-testid='day-weather'>
             <Col>{formatTime(hour.dt_txt.slice(11,20))}</Col>
             <Col>
-                {(hour.weather[0].description === 'sunny') ? <img src={sunny} alt='im' id='img'/> : 
+                {
+                (hour.weather[0].description === 'sunny') ? <img src={sunny} alt='im' id='img'/> : 
                 (hour.weather[0].description === 'light rain') ? <img src={lightRain} alt='im' id='img'/> : 
                 (hour.weather[0].description === 'rain') ? <img src={rain} alt='im' id='img'/> :
                 (hour.weather[0].description === 'snow') ? <img src={snow} alt='im' id='img'/> :
@@ -59,8 +60,8 @@ function DayWeather(props) {
                 (hour.weather[0].description === 'thunderstorm with heavy rain') ? <img src={thunder} alt='im' id='img'/> :
                 (hour.weather[0].description === 'thunderstorm with light rain') ? <img src={thunder} alt='im' id='img'/> :
                 (hour.weather[0].description === 'clear sky') ? <img src={sunny} alt='im' id='img'/> :
-                null} </Col>
-            <Col>{hour ? convertToCelcius(hour.main.temp) : 'not loaded'}</Col>
+                sunny } </Col>
+            <Col>{hour ? convertToCelcius(hour.main.temp) : '22'}</Col>
             </Row>
             
             );

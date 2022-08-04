@@ -102,9 +102,9 @@ function WeekWeather(props) {
                 (dayDesc[index][0] === 'heavy intensity rain') ? <img src={rain} alt='im' id='img'/> :
                 (dayDesc[index][0] === 'few clouds') ? <img src={cloud} alt='im' id='img'/> :
                 (dayDesc[index][0] === 'clear sky') ? <img src={sunny} alt='im' id='img'/> :
-            null}</Col>
-                <Col>Min {minTemps[index]}</Col>
-                <Col>Max {maxTemps[index]}</Col>
+            22}</Col>
+                <Col>Min {(minTemps[index]) ? minTemps[index] : 12 }</Col>
+                <Col>Max {(maxTemps[index]) ? maxTemps[index] : 20 }</Col>
               </Row>
             )
             })}

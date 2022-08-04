@@ -15,18 +15,18 @@ import { Row, Col, Container } from 'react-bootstrap';
 function MainDayWeather(props) {
     return (
         <Container fluid id='main-day-weather'>
-            <Col id="city-name" data-testid='city-test'>{props.day ? props.day.name : 'not loaded'}</Col>
-            <Col id='temp-header'>{props.temp ? convertToCelcius(props.temp) : 'not loaded' }</Col>
+            <Col id="city-name" data-testid='city-test'>{props.day ? props.day.name : localStorage.getItem('city')}</Col>
+            <Col id='temp-header'>{props.temp ? convertToCelcius(props.temp) : '' }</Col>
             <Row >
                 <Col>
-                {(props.description) ? props.description : 'not loaded'}
+                {(props.description) ? props.description : 'Sunny'}
                 </Col>
             <Row>
                 <Col> 
-                    H {props.max_temp ? convertToCelcius(props.max_temp) : 'not loaded'}
+                    H {props.max_temp ? convertToCelcius(props.max_temp) : '25'}
                 </Col>
                 <Col>
-                    L  { props.min_temp ? convertToCelcius(props.min_temp) : 'not loaded'}
+                    L  { props.min_temp ? convertToCelcius(props.min_temp) : '11'}
                 </Col>
             </Row>
             {(props.description === 'sunny') ? <img src={sunny} alt='im' id='img' className="main-img"/> : 
