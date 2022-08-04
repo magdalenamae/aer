@@ -40,14 +40,14 @@ function Weather(){
 
     const GeolocationCoordinates = (event) => {
         event.preventDefault();
-        axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
+        axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
         .then(response => {
           
             setCity(response.data[0].name)
             let latitude = response.data[0].lat
             let longitude = response.data[0].lon
            
-                axios.get(`http://api.openweathermap.org/data/2.5/forecast?&lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
+                axios.get(`https://api.openweathermap.org/data/2.5/forecast?&lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
                     .then(response => {
                         setDay(response.data.list.slice(0,5))
                         setWeek(response.data.list.slice(6))
