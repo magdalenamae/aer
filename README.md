@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# AER
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## v1.0.0
 
-## Available Scripts
+### Technologies Used
+- React
+- JavaScript
+- CSS, HTML
+- Figma 
+- Jest
+- OpenWeather Map Api
 
-In the project directory, you can run:
+### Goals not Reached
 
-### `npm start`
+- setting a landing page with intial weather data 
+- adding audio components to the app for each different weather state
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Function for making api call and setting state 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+ 
+    function callAxios(props){
+        axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${props}&limit=1&appid=${apiKey}`)
+        .then(response => {
+          
+            setCity(response.data[0].name)
+            let latitude = response.data[0].lat
+            let longitude = response.data[0].lon
+            
+           
+                axios.get(`https://api.openweathermap.org/data/2.5/forecast?&lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
+                    .then(response => {
+                        setDay(response.data.list.slice(0,5))
+                        setWeek(response.data.list.slice(6))
+                        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`)
+                            .then(response => {
+                                // console.log(response.data , 'day data')
+                                setDaySelected(response.data)
+                                setCity(localStorage.getItem('city', city))
+                                setCitySelected(response.data.name)
+                                setTempMainSelected(response.data.main.temp)
+                                setTempMinSelected(response.data.main.temp_min)
+                                setTempMaxSelected(response.data.main.temp_max)
+                                setDescription(response.data.weather[0].description)
+                            })
+                    })
+                    
 
-### `npm run build`
+        }) 
+    }
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Function to set Geolocation Coordiants 
+```
+  const GeolocationCoordinates = (event) => {
+        if(event){
+            event.preventDefault();
+        }
+        
+        callAxios(city)  
+    }
+```
+### Function using UseEffect to acess local storage and make axios call 
+```
+ useEffect (() => {
+        setCity(localStorage.getItem('city'))
+        callAxios(localStorage.getItem('city'))
+        console.log(city)
+    },[])
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img
+  src="./images/desktop.png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
+  <img
+  src="./images/mobile.png"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px; height: 350px">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src="./images/styleguide.png"
+alt="style guide" style="display: flex; margin: 0 auto; max-widht: 300px; height: 350px">
 
-### `npm run eject`
+### How to run it yourself
+- yarn install 
+- yarn start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Heroku Link 
+https://aer-app.herokuapp.com/
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
