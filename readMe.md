@@ -86,8 +86,8 @@ https://user-images.githubusercontent.com/99164498/183227890-53122f97-c7af-4584-
   title="Optional title"
   style="display: inline-block; margin: 0 auto; max-width: 300px height: 50px">
 
-<img src="./images/styleguide.png"
-alt="syyle guide"
+<img src="./src/images/styleguide.png"
+alt="style guide"
 style
 >
 
