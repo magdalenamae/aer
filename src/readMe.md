@@ -1,5 +1,9 @@
 # AER
 
+
+https://user-images.githubusercontent.com/99164498/183227890-53122f97-c7af-4584-a781-f4c4b3a4b267.mov
+
+
 ## v1.0.0
 
 ### Technologies Used
@@ -80,16 +84,13 @@
   src="./images/mobile.png"
   alt="Alt text"
   title="Optional title"
-  style="display: inline-block; margin: 0 auto; max-width: 300px; height: 350px">
+  style="display: inline-block; margin: 0 auto; max-width: 300px height: 50px">
 
-<img src="./images/styleguide.png"
-alt="style guide" style="display: flex; margin: 0 auto; max-widht: 300px; height: 350px">
+<img src="./styleguide.png"
+alt="syyle guide"
+style
+>
 
 ### How to run it yourself
 - yarn install 
 - yarn start
-
-### Heroku Link 
-https://aer-app.herokuapp.com/
-
-
