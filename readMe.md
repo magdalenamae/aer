@@ -76,19 +76,19 @@ https://user-images.githubusercontent.com/99164498/183227890-53122f97-c7af-4584-
 ```
 
 <img
-  src="./images/desktop.png"
-  alt="Alt text"
+  src="/src/images/desktop.png"
+  alt="Desktop Design"
   title="Optional title"
-  style="display: inline-block; margin: 0 auto; max-width: 300px">
+  style="display: inline-block; margin: 0 auto; max-width: 300px; height: 350px;">
   <img
-  src="./images/mobile.png"
-  alt="Alt text"
+  src="/src/images/mobile.png"
+  alt="Mobile Design"
   title="Optional title"
-  style="display: inline-block; margin: 0 auto; max-width: 300px; height: 50px">
+  style="display: inline-block; margin: 0 auto; max-width: 300px; height: 350px">
 
 <img src="/src/images/styleguide.png"
 alt="style guide"
-style="display: inline-block; margin: 0 auto; max-width: 300px; height: 50px">
+style="display: inline-block; margin: 0 auto; max-width: 300px; height: 350px">
 
 ### How to run it yourself
 - yarn install 
