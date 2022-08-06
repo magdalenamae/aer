@@ -14,9 +14,9 @@ import { Row, Col, Container } from 'react-bootstrap';
 
 function MainDayWeather(props) {
     return (
-        <Container fluid id='main-day-weather'>
+        <Container id='main-day-weather'>
             <Col id="city-name" data-testid='city-test'>{props.day ? props.day.name : localStorage.getItem('city')}</Col>
-            <Col id='temp-header'>{props.temp ? convertToCelcius(props.temp) : '' }</Col>
+            <Col id='temp-header'>{props.temp ? convertToCelcius(props.temp) : '20' }</Col>
             <Row >
                 <Col>
                 {(props.description) ? props.description : 'Sunny'}

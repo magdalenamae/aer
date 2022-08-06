@@ -1,23 +1,28 @@
-import Weather from './findWeather';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import {Col, Row} from 'react-bootstrap'
+
 import './about.css';
-import './App.css';
+import './App.css'
+
 import MainPage from './mainPage';
+import Weather from './findWeather';
+
+import thunderstorm from './images/thunderstorm.png'
 
 function AboutPage (){
   return (
-      <div>
+      <Row>
+          <img src={thunderstorm} alt="thunderstorm" className="thunderstorm" id="img"/>
           <h1 id='about-header'>AER</h1>
-          <p id='about-text'>The vsion behind aer was quite simple really,
-           build a react built application in two weeks and make it achivable.
-           Aer meaning 'air' in Greek and weather in Latin was the theme of the project whilst incorperating a modern twist to the theme.
-            The application is a weather application that allows the user to search for a city and get the weather for that specific city. 
-            The application also allows the user to get the weather for the next 5 days and the weather for the next 7 days.
-            The application also allows the user to convert the temperature from kelvin to celcius and vice versa.
-
-           </p>
+          <Col id='about-text'>The vison behind aer,
+           To build a react application in a fortnight, making it successfully accessible and user friendly.
+           Aer translating to 'air' in Greek and 'weather' in Latin was the theme of this project.
+            This is a weather application that allows the user to search for a city and obtain that locations weather. 
+            Aer allows the user to get the weather for the next business week, in either celsius or kelvin.
+           </Col>
+           
           <Link id='homepage-link' to='/'>Home</Link>
-      </div>
+      </Row>
   )
 }
 

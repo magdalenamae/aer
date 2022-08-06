@@ -2,12 +2,10 @@
 .App {
   text-align: center;
   background-color: #323A46;
+  min-height: 100vh;
+  padding-top: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -26,27 +24,19 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 
 /* Styling the day div */
 #day-div {
-  color : #f7f8f9;
+  color: #f7f8f9;
   display: grid;
+  width: auto;
+  margin: 0 auto;
   align-items: center;
+  padding: 0 auto;
 }
 #main-header{
+  margin : 20px 0 0 0;
   font-size: calc(10px + 2vmin);;
   text-decoration: none;
   color: #6183E4;
@@ -54,10 +44,13 @@
   ;
 }
 #week-div {
-      color: #f7f8f9;
-      height: 10%;
-      padding: 3%;
-      align-items: center;
+  color: #f7f8f9;
+  height: 10%;
+  padding: 2vh;
+  width: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
 }
 #temp-header{
   font-size: 11vh;
@@ -65,13 +58,15 @@
   color: #f7f8f9;
 }
 #main-day-weather{
-    
-    color: #f7f8f9;
+  width: 100%;
+  color: #f7f8f9;
   
 }
 #day-div-container {
   display: flex;
   color: #f7f8f9;
+  padding-bottom: 10px;
+  padding-top: 15px;
 }
 
 
@@ -94,7 +89,7 @@
 
 
 #city-name{
-  font-size: (10px + 2vmin);
+  font-size: 3vh;
 }
 
 button[type='submit'] {
@@ -127,4 +122,13 @@ input[type='text']{
   .container header .header-nav-area #nav_container  {
     display:flex;
   }
+}
+
+.container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
 }

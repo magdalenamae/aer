@@ -32,9 +32,8 @@ function Weather(){
     const [tempMainSelected, setTempMainSelected] = useState(0)
     const [tempMinSelected, setTempMinSelected] = useState(0)
     const [tempMaxSelected, setTempMaxSelected] = useState(0)
-    const [description, setDescription] = useState('Sunny')
-    const [longitude, setLongitude] = useState(-37.8142176)
-    const [latitude, setLatitude] = useState(144.9631608)
+    const [description, setDescription] = useState('')
+   
    
     
   
