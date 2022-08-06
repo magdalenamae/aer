@@ -20,8 +20,9 @@ function AboutPage (){
             This is a weather application that allows the user to search for a city and obtain that locations weather. 
             Aer allows the user to get the weather for the next business week, in either celsius or kelvin.
            </Col>
-           
+           <Row>
           <Link id='homepage-link' to='/'>Home</Link>
+          </Row>
       </Row>
   )
 }
